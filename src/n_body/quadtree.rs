@@ -139,7 +139,7 @@ impl QuadTree {
         let y = (self.boundary.pos.y() - half) as f32;
         let s = self.boundary.size as f32;
 
-        draw_rectangle_lines(x, y, s, s, 1.0, Color::from_rgba(0, 200, 100, 60));
+        draw_rectangle_lines(x, y, s, s, 1.5, Color::from_rgba(0, 200, 100, 180));
 
         if self.divided {
             if let Some(ref nw) = self.nw { nw.draw(); }

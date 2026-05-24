@@ -145,11 +145,12 @@ async fn main() {
 
         // ── QuadTree visualisation ────────────────────────────────────
         if show_quadtree {
-            let boundary = Node::new(
-                Vec2::new(screen_width() as f64 / 2.0, screen_height() as f64 / 2.0),
-                screen_width().max(screen_height()) as f64,
-            );
-            let mut qt = QuadTree::new(boundary, 4);
+            let (sx, sy, sw, sh) = sim_rect();
+            // Create a square boundary that covers the sim area
+            let size = sw.max(sh);
+            let boundary = Node::new(Vec2::new(sx + sw / 2.0, sy + sh / 2.0), size);
+            // Use capacity 1 or 2 so it subdivides visibly even with few particles
+            let mut qt = QuadTree::new(boundary, 2);
             for i in 0..sim.bodies.len() {
                 qt.insert(i, &sim.bodies);
             }
@@ -193,7 +194,7 @@ async fn main() {
                     ui.separator();
 
                     // ── Central Body (Sun) ─────────────────────────────
-                    ui.collapsing("☀ Central Body", |ui| {
+                    ui.collapsing("Central Body", |ui| {
                         let prev_has_sun = has_sun;
                         ui.checkbox(&mut has_sun, "Enable Sun");
 
@@ -237,7 +238,7 @@ async fn main() {
                     ui.separator();
 
                     // ── Bounded Space ──────────────────────────────────
-                    ui.checkbox(&mut bounded, "🔲 Bounded Space");
+                    ui.checkbox(&mut bounded, "Bounded Space");
                     ui.separator();
 
                     // ── Actions ────────────────────────────────────────
@@ -283,7 +284,7 @@ async fn main() {
                     }
 
                     ui.separator();
-                    ui.checkbox(&mut show_quadtree, "🌲 Show QuadTree");
+                    ui.checkbox(&mut show_quadtree, "Show QuadTree");
 
                     ui.separator();
 
