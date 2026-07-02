@@ -2,6 +2,9 @@
 
 A high-performance N-body gravitational simulation using the **Barnes-Hut algorithm** and **QuadTree** spatial partitioning. Watch particles orbit, collide, and merge in real-time!
 
+<img width="1842" height="1158" alt="image" src="https://github.com/user-attachments/assets/1973d5bf-0a21-473e-bbbf-546052b1a98a" />
+
+
 ## Features
 
 - **Barnes-Hut Algorithm** - O(n log n) complexity instead of O(n²)
