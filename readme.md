@@ -2,8 +2,6 @@
 
 A high-performance, interactive 3D N-body gravitational simulation. It uses a custom **3D Octree** spatial partitioning structure for optimized collision queries and features a rich, responsive interface with orbital camera controls and live telemetry plotting.
 
-![3D Simulation Sandbox Screenshot](https://raw.githubusercontent.com/macroquad/macroquad/master/logo.png) *(Placeholder - runs locally in hardware-accelerated 3D window)*
-
 <img width="1859" height="1114" alt="image" src="https://github.com/user-attachments/assets/7d4908ab-e996-47e7-9790-d38a9993be89" />
 
 
